@@ -43,7 +43,7 @@ def test_one_invalid_color_then_quit(input_mock, capsys):
 
 
 @patch("builtins.input", side_effect=['white', 'red', 'quit'])
-def test_invalid_then_valid_color_then_quit(nput_mock, capsys):
+def test_invalid_then_valid_color_then_quit(input_mock, capsys):
     # white is not a valid color so continue the loop,
     # then user enters red which is valid so print it, then quit
     call_print_colors()

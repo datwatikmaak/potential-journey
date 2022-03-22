@@ -22,4 +22,7 @@ def get_total_points(belts=ninja_belts):
        them all over the place!)
 
        Return the total number of points int from the function."""
-    pass
+    return sum(value.score * value.ninjas for key, value in belts.items())
+
+
+get_total_points(ninja_belts)

@@ -30,6 +30,3 @@ def slice_and_dice(text: str = TEXT) -> list:
             results.append(stripped.rsplit(" ", 1)[-1])
 
     return results
-
-
-print(slice_and_dice(TEXT))

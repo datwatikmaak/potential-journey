@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from typing import Dict, List
 
 cars = {
@@ -16,7 +17,7 @@ def get_all_jeeps(cars: CarsType = cars) -> str:
     Retrieve the 'Jeep' models from the cars dict and join them by a
     comma and space (', '). Leave the original ordering intact.
     """
-    pass
+    return ", ".join(cars["Jeep"])
 
 
 def get_first_model_each_manufacturer(cars: CarsType = cars) -> List[str]:
@@ -25,18 +26,18 @@ def get_first_model_each_manufacturer(cars: CarsType = cars) -> List[str]:
     manufacturer. Return the matching models in a list leaving the original
     ordering intact.
     """
-    pass
+    return [value[0] for key, value in cars.items()]
 
 
 def get_all_matching_models(
-    cars: CarsType = cars, grep: str = DEFAULT_SEARCH
+        cars: CarsType = cars, grep: str = DEFAULT_SEARCH
 ) -> List[str]:
     """
     Return a list of all models containing the case insensitive
     'grep' string which defaults to DEFAULT_SEARCH ('trail').
     Sort the resulting sequence alphabetically
     """
-    pass
+    return sorted([s for val in cars.values() for s in val if grep.casefold() in s.casefold()])
 
 
 def sort_car_models(cars: CarsType = cars) -> CarsType:
@@ -44,4 +45,8 @@ def sort_car_models(cars: CarsType = cars) -> CarsType:
     Loop through the cars dict returning a new dict with the
     same keys and the values sorted alphabetically.
     """
-    pass
+    sorted_dict = dict(sorted(cars.items()))
+    for i in sorted_dict:
+        sorted_dict[i].sort()
+
+    return sorted_dict

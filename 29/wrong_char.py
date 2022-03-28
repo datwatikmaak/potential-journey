@@ -14,3 +14,6 @@ def get_index_different_char(chars):
         return non_alnum_char[0]
     if len(alnum_char) < len(non_alnum_char):
         return alnum_char[0]
+
+
+get_index_different_char(['A', 'f', '.', 'Q', 2])  # 2
